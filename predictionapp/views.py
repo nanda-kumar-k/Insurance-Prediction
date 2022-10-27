@@ -13,7 +13,8 @@ def home(request):
 def predictValue(age,bmi,childrens,sex,smoke,northwest,southeast,southwest):
     warnings.filterwarnings('ignore')
 
-    df= pd.read_excel('http://127.0.0.1:8000/media/ModelData.xlsx')
+    # df= pd.read_excel('http://127.0.0.1:8000/media/ModelData.xlsx')
+    df= pd.read_excel('https://nandu-insuranceprediction.herokuapp.com/media/ModelData.xlsx')
 
     X=df.drop('expenses',axis=1)
     y=df.expenses
