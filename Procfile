@@ -1,0 +1,1 @@
+web: gunicorn insuranceprediction.wsgi --log-file -

@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  		<meta charset="UTF-8" >
+  		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>Insurance</title>
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'fonts/lineo-icon/style.css' %}" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" type="text/css"  href="{% static 'style.css' %}" />
+		<script type = "text/javascript" src="{% static 'js/maps.js' %}"></script>
+		<script type = "text/javascript" src="{% static 'js/app.js' %}"></script>
+		<script type = "text/javascript" src="{% static 'js/plugins.js' %}"></script>
+		<script type = "text/javascript" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+	</head>
+
+
+	<body>
+		
+		<div id="site-content">
+			<header class="site-header">
+				<div class="bottom-header">
+					<div class="container">
+						<div class="main-navigation">
+							<button type="button" class="menu-toggle"><i class="fa fa-bars"></i>.</button>
+							<ul class="menu">
+								<li style="height: 30px; margin-top: 0%;">
+									<a href="index.html" id="branding">
+										<img src="{% static 'images/logo.png' %}" alt="Company Name" class="logo">
+										<div class="logo-text">
+											<h1 class="site-title">Life Insurance</h1>
+											<small class="description">Predict-Save</small>
+										</div>
+									</a> <!-- #branding -->
+								</li>
+								<li class="menu-item"><a href="#">About us</a></li>
+								<li class="menu-item"><a href="#">Insurance plans</a></li>
+								<li class="menu-item"><a href="#">Resources</a></li>
+								<li class="menu-item"><a href="#">Contact</a></li>
+							</ul> <!-- .menu -->
+						</div> <!-- .main-navigation -->
+						
+						<div class="social-links">
+							<a href="#" ><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-google-plus"></i></a>
+							<a href="#"><i class="fa fa-pinterest"></i></a>
+						</div>
+						
+						<div class="mobile-navigation"></div>
+					</div>
+				</div>
+				
+			</header> <!-- .site-header -->
+
+			<div class="hero hero-slider">
+				<ul class="slides">
+					<li data-bg-image="{% static 'dummy/slide-1.jpg' %}">
+						<div class="container">
+							<div class="slide-content">
+								<h2 class="slide-title">Predict your <strong>Life Insurance</strong></h2>
+								<p>Insurance is a way to manage your risk. When you buy insurance, you purchase protection against unexpected financial losses. The insurance company pays you or someone you choose if something bad happens to you. If you have no insurance and an accident happens, you may be responsible for all related costs. So Predict Your Life Insurance</p>
+								<a href="#" class="button">More Info</a>
+							</div>
+						</div>
+					</li>
+					<li data-bg-image="{% static 'dummy/slide-2.jpg' %}">
+						<div class="container">
+							<div class="slide-content">
+								<h2 class="slide-title">Predict your <strong>Life Insurance</strong></h2>
+								<p>Insurance is a way to manage your risk. When you buy insurance, you purchase protection against unexpected financial losses. The insurance company pays you or someone you choose if something bad happens to you. If you have no insurance and an accident happens, you may be responsible for all related costs. So Predict Your Life Insurance</p>
+								<a href="#" class="button">More Info</a>
+							</div>
+						</div>
+					</li>
+					<li data-bg-image="{% static 'dummy/slide-3.jpg' %}">
+						<div class="container">
+							<div class="slide-content">
+								<h2 class="slide-title">Predict your <strong>Life Insurance</strong></h2>
+								<p>Insurance is a way to manage your risk. When you buy insurance, you purchase protection against unexpected financial losses. The insurance company pays you or someone you choose if something bad happens to you. If you have no insurance and an accident happens, you may be responsible for all related costs. So Predict Your Life Insurance</p>
+								<a href="#" class="button">More Info</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div> <!-- .hero-slider -->
+
+			<main class="main-content">
+				<div class="fullwidth-block greet-section">
+					<div class="container">
+						<h2 class="section-title">Welcome to our website</h2>
+						<small class="section-subtitle">predict insurance premiums</small>
+						<div class="InFormContainer">
+							
+							<form method="post" action="{% url 'predictionapp:predict' %}" >
+								{% csrf_token %}
+								<br/>
+								<br/>
+								<h2>Enter Details To Predict Insurance Premiums</h2>
+								<br/>
+								<br/>
+								<!-- <img src="{% static 'dummy/featured-image-3.jpg' %}" alt="Company Name" class="logo"> -->
+								<input type="text" name="bmi" placeholder="Enter Bmi">
+								<input type="text" name="age" placeholder="Enter Age">
+								<select name="sex">
+									<option value="2">Select Gender</option>
+									<option value="1">Male</option>
+									<option value="0">Female</option>
+								</select>
+								<input type="text" name="childrens" placeholder="Enter No Of Childrens">
+								<select name="smoke">
+									<option value="2">Do You Smoke</option>
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+								</select>
+								<select name="region">
+									<option value="4">Select Your Region</option>
+									<option value="2">northwest</option>
+									<option value="3">southeast</option>
+									<option value="1">southwest</option>
+								</select>
+								<br/>
+								<br/>
+								<button>Submit</button>
+								<br/>
+								<br/>
+							</form>
+							{% if data %}
+								<h2 id="Pre" data-url={{data}}>Predicted Insurance Premiums: {{ data }}</h2>
+								<script>
+									function PredictPrint(){
+										var pre = $("#Pre").attr("data-url");
+										swal("Predicted Insurance Premiums", pre);
+									}
+								</script>
+								<script>
+									PredictPrint()
+								</script>
+							{% endif %}
+						</div>
+					</div> <!-- .container -->
+				</div> <!-- .fullwidth-block -->
+
+				<div class="fullwidth-block" data-bg-color="#f1f1f1">
+					<div class="container">
+						<h2 class="section-title">Our insurance offer</h2>
+						<small class="section-subtitle">Getting insurance is YOUR responsibility to your family and loved ones. You may hate it but it is your responsibility.</small>
+
+						<div class="row">
+							<div class="col-md-3">
+								<div class="offer caption-top">
+									<img src="{% static 'dummy/offer-tall.jpg' %}" alt="offer 1">
+									<div class="caption">
+										<h3 class="offer-title">Massa augue</h3>
+										<small>Conubia nostra per inceptos</small>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-9">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="offer caption-bottom">
+											<img src="{% static 'dummy/offer-1.jpg' %}" alt="offer 2">
+											<div class="caption">
+												<h3 class="offer-title">Curabitur vehicula</h3>
+												<small>Conubia nostra per inceptos</small>	
+											</div>
+										</div>
+									</div>
+									<div class="col-md-8">
+										<div class="offer caption-bottom">
+									<img src="{% static 'dummy/offer-wide.jpg' %}" alt="offer 3">
+									<div class="caption">
+										<h3 class="offer-title">Vivamus rhoncus porttitor</h3>
+										<small>Conubia nostra per inceptos</small>
+									</div>
+								</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="offer caption-bottom">
+											<img src="{% static 'dummy/offer-2.jpg' %}" alt="offer 2">
+											<div class="caption">
+												<h3 class="offer-title">Curabitur vehicula</h3>
+												<small>Conubia nostra per inceptos</small>	
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="offer caption-bottom">
+											<img src="{% static 'dummy/offer-3.jpg' %}" alt="offer 2">
+											<div class="caption">
+												<h3 class="offer-title">Curabitur vehicula</h3>
+												<small>Conubia nostra per inceptos</small>	
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="offer caption-bottom">
+											<img src="{% static 'dummy/offer-4.jpg' %}" alt="offer 2">
+											<div class="caption">
+												<h3 class="offer-title">Curabitur vehicula</h3>
+												<small>Conubia nostra per inceptos</small>	
+											</div>
+										</div>
+									</div>
+								</div> <!-- .row -->
+							</div> <!-- .col-md-8 -->
+						</div> <!-- .row -->
+
+					</div> <!-- .container -->
+				</div> <!-- .offer-section -->
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<h2 class="section-title">Latest news</h2>
+						<div class="row news-list">
+							<div class="col-md-4">
+								<div class="news">
+									<figure><img src="{% static 'dummy/featured-image-1.jpg' %}" alt=""></figure>
+									<div class="date"><img src="{% static 'images/icon-calendar.png' %}" alt="">03/09/2014</div>
+									<h2 class="entry-title"><a href="#">Donec laoreet non nec aliquam pellentesque interdum</a></h2>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="news">
+									<figure><img src="{% static 'dummy/featured-image-2.jpg' %}" alt=""></figure>
+									<div class="date"><img src="{% static 'images/icon-calendar.png' %}" alt="">03/09/2014</div>
+									<h2 class="entry-title"><a href="#">Donec laoreet non nec aliquam pellentesque interdum</a></h2>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="news">
+									<figure><img src="{% static 'dummy/featured-image-3.jpg' %}" alt=""></figure>
+									<div class="date"><img src="{% static 'images/icon-calendar.png' %}" alt="">03/09/2014</div>
+									<h2 class="entry-title"><a href="#">Donec laoreet non nec aliquam pellentesque interdum</a></h2>
+								</div>
+							</div>
+						</div> <!-- .row -->
+					</div> <!-- .container -->
+				</div> <!-- .latest-news-section -->
+
+				<div class="fullwidth-block" data-bg-color="#0f75bd">
+					<div class="container">
+						<div class="testimonial-slider">
+							<ul class="slides">
+								<li>
+									<blockquote>When you have insurance you know that you are secured against any unforeseen events in life, and this gives you complete peace of mind.</cite></blockquote>
+								</li>
+								<li>
+									<blockquote>Savings alone are not enough to achieve financial freedom; insuring your assets with general insurance policies is equally important.</cite></blockquote>
+								</li>
+								<li>
+									<blockquote>Justice is the insurance which we have on our lives and property.Obedience is the premium which we pay for it.<cite>John Smith</cite></blockquote>
+								</li>
+							</ul>
+						</div>
+					</div> <!-- .container -->
+				</div> <!-- .fullwidth-block -->
+
+				<div class="fullwidth-block">
+					<div class="map"></div>
+				</div>
+			</main>
+
+			<div class="site-footer">
+				<div class="widget-area">
+					<div class="container">
+						<div class="row">
+						</div>
+					</div>
+				</div>
+
+				<div class="bottom-footer">
+					<div class="container">
+						<nav class="footer-navigation">
+							<a href="#">Home</a>
+							<a href="#">About us</a>
+							<a href="#">Insurance plans</a>
+							<a href="#">Resources</a>
+							<a href="#">Contact</a>
+						</nav>
+
+						<div class="colophon">Machine Learning Project By : <b>NANDA KUMAR K</b></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var map;
+			function initMap() {
+				map = new google.maps.Map(document.getElementById('map'), {
+					center: {lat: -34.397, lng: 150.644},
+					zoom: 8
+				});
+			}
+			function PredictPrint(){
+				Swal.fire({
+					title: 'Predicted',
+					text: 'Your prediction has been sent to the server',
+					icon: 'success',
+					confirmButtonText: 'Cool'
+				})
+			}
+
+		</script>
+		<script type = "text/javascript" src="{% static 'js/maps.js' %}"></script>
+		<script type = "text/javascript" src="{% static 'js/app.js' %}"></script>
+		<script type = "text/javascript" src="{% static 'js/plugins.js' %}"></script>
+		<script type = "text/javascript" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+	</body>
+
+</html>
