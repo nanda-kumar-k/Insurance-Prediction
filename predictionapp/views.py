@@ -56,3 +56,38 @@ def predict(request):
         pre = predictValue(age,bmi,childrens,sex,smoke,northwest,southeast,southwest)
         return render(request, 'index.html',{'data':pre})
     return render(request, 'index.html')
+
+
+def ApiPrediction(request, age, bmi, children, sex, smoke, region):
+    if age and bmi and children and sex and smoke and region:
+        age = int(age)
+        bmi = float(bmi)
+        childrens = int(children)
+        sex = int(sex)
+        smoke = int(smoke)
+        region = int(region)
+        northwest = 0 
+        southeast = 0 
+        southwest = 0
+        if region == 1:
+            northwest = 1
+            southeast = 0
+            southwest = 0
+        elif region == 2:
+            northwest = 0
+            southeast = 1
+            southwest = 0
+        else:
+            northwest = 0
+            southeast = 0
+            southwest = 1   
+        # print(age,bmi,childrens,sex,smoke,northwest,southeast,southwest)
+        pre = predictValue(age,bmi,childrens,sex,smoke,northwest,southeast,southwest)
+        return HttpResponse("Predicted Insurance Premiums Value is : "+str(pre))
+    else :
+        return HttpResponse("Please provide all the values....!!")
+    
+    
+   
+        
+
